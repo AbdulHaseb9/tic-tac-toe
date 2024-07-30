@@ -32,7 +32,22 @@ btns.forEach((element, index) => {
     })
 });
 
+const checkTie = () => {
+    let allDisabled = true;
+    btns.forEach(btn => {
+        if (!btn.disabled) {
+            allDisabled = false;
+        }
+    });
+
+    if (allDisabled) {
+        winner.innerHTML = "It's a tie!";
+        winner.style.display = "block";
+    }
+}
+
 const checkWinner = () => {
+    checkTie()
     for (const i of winPattern) {
         let box1Val = btns[(i[0])].innerHTML;
         let box2Val = btns[(i[1])].innerHTML;
